@@ -21,7 +21,11 @@ alias hdd='cd /scratch/gobi2/amyxlu'
 alias gjc='srun -c 20 -l -p cpu --mem 30000'
 alias gj='srun --gres=gpu:1 -c 8 -l -p gpu --mem 30GB'
 alias sinteract='srun --mem=12G -c 8 --gres=gpu:1 -p interactive --pty bash'
-alias slurm-avail='bash /usr/local/bin/usageStats.sh'
+alias avail='bash /usr/local/bin/usageStats.sh'
+alias sq='squeue -u amyxlu'
+alias gjc='srun -c 20 -l -p cpu --mem 30000'
+alias gj='srun --gres=gpu:1 -c 8 -l -p gpu --mem 100GB'
+alias sinteract='srun --mem=12G -c 8 --gres=gpu:1 -p interactive --pty bash'
 
 ### Vector Installations ### 
 # For Anaconda

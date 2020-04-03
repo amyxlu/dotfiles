@@ -168,6 +168,7 @@ set mouse=a
 " set cmdheight=2
  
 " Display line numbers on the left
+" set relativenumber
 set number
  
 " Quickly time out on keycodes, but never time out on mappings
@@ -203,3 +204,8 @@ set expandtab
 " next search
 nnoremap <C-L> :nohl<CR><C-L>
 
+" Remap window changing
+nmap <C-h> <C-w>h
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l

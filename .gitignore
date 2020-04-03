@@ -1,14 +1,5 @@
 ## Project Specific ##
 logs/*
-launch_scripts/results/*
-
-*.pkl
-*.h5
-*.csv
-*.h5
-*.log
-*.out
-*.sbatch
 
 ## Defaults ##
 *.swp
