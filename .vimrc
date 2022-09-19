@@ -564,6 +564,7 @@ Plug 'mattn/vim-lsp-settings'
         \         }
         \     }}
         \ }
+    let g:lsp_settings['clangd'] = {'allowlist': ['c', 'cpp', 'objc', 'objcpp', 'cuda']}
 
     " Show error messages below statusbar
     let g:lsp_diagnostics_echo_cursor = 1
@@ -726,6 +727,9 @@ Plug 'brentyi/vim-codefmt'
 
         " Use prettier for HTML, CSS, Javascript, Markdown, Liquid
         autocmd FileType html,css,javascript,markdown,liquid let b:codefmt_formatter='prettier'
+        " CUDA => C++
+        autocmd FileType cuda let b:codefmt_formatter='clang-format'
+
     augroup END
 
     " Automatically find the newest installed version of clang-format
@@ -768,7 +772,7 @@ Plug 'brentyi/vim-codefmt'
     " Search for clang-format when we open a C/C++ file
     augroup FindClangFormat
         autocmd!
-        autocmd Filetype c,cpp call s:find_clang_format()
+        autocmd Filetype c,cpp,cuda call s:find_clang_format()
     augroup END
 " }}
 
@@ -1483,25 +1487,22 @@ endif
 " let &packpath=&runtimepath
 " source ~/.vimrc
 
-:set ignorecase
-:set smartcase
-:set mouse=a
+set ignorecase
+set smartcase
+set mouse=a
 
 " Turn off relative numbering
-:set norelativenumber
+set norelativenumber
 
 " colorscheme space-vim-dark
 colorscheme space-vim-dark
 "colorscheme molokai
+"
+" Cltr + t to open the tree
+map <C-t> :NERDTreeToggle<CR>
 
 " function MyCustomHighlights()
 "     hi semshiGlobal      ctermfg=Orange guifg=#dfaf5f
 "     hi semshiImported    ctermfg=DarkPurple gui=NONE cterm=NONE
 " endfunction
 " autocmd FileType python call MyCustomHighlights()
-
-set directory=$HOME/.vim/swapfiles/
-
-highlight link FloatBorder Pmenu
-
-map <silent> <C-t> :NERDTreeFocus<CR>
